@@ -1,9 +1,19 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../Theme/ThemeContext'; // Ajusta la ruta si es distinta
+
 function CharacterCard({ character }) {
   const { name, images, species } = character;
+  const { modoOscuro } = useContext(ThemeContext);
   const fullName = `${name.first} ${name.middle || ''} ${name.last}`.trim();
-  
+
+  const cardStyle = {
+    backgroundColor: modoOscuro ? '#1e1e1e' : '#fff',
+    color: modoOscuro ? '#fff' : '#000',
+    transition: 'all 0.3s ease',
+  };
+
   return (
-    <div className="character-card">
+    <div className="character-card" style={cardStyle}>
       <div className="character-image">
         <img 
           src={images.main} 

@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import Layout from './components/Layout/Layout';
 import CharacterList from './components/Characters/CharacterList';
 import ContactForm from './components/Form/ContactForm';
+import ThemeProvider from './components/Theme/ThemeContext';
 import './App.css';
 
 function App() {
@@ -14,22 +15,22 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <Routes>
-        {!isLoggedIn ? (
-          <Route path="/" element={<Login onLogin={handleLogin} />} />
-        ) : (
-          <>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          {!isLoggedIn ? (
+            <Route path="/" element={<Login onLogin={handleLogin} />} />
+          ) : (
             <Route path="/" element={<Layout />}>
               <Route index element={<Navigate to="/characters" replace />} />
               <Route path="characters" element={<CharacterList />} />
               <Route path="form" element={<ContactForm />} />
             </Route>
-          </>
-        )}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
+          )}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
