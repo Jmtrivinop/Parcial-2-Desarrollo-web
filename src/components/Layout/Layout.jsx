@@ -5,10 +5,10 @@ import { Outlet } from 'react-router-dom';
 import './Layout.css';
 
 function Layout() {
-  const { modoOscuro } = useContext(ThemeContext); // Obtenemos el tema actual
+
 
   return (
-    <div className={`layout ${modoOscuro ? 'dark-theme' : 'light-theme'}`}>
+    <div className={`layout`}>
       <Navbar />
       <main className="main-content">
         <Outlet />

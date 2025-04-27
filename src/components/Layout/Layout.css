@@ -6,17 +6,7 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Estilos para el tema claro */
-.light-theme {
-  background-color: #fff;
-  color: #000;
-}
 
-/* Estilos para el tema oscuro */
-.dark-theme {
-  background-color: #121212;
-  color: #ffff;
-}
 
 .main-content {
   flex: 1;

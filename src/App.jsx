@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Layout from './components/Layout/Layout';
 import CharacterList from './components/Characters/CharacterList';
-import ContactForm from './components/Form/ContactForm';
 import CharacterInfo from './components/Characters/CharacterInfo';
-import ThemeProvider from './components/Theme/ThemeContext';
+import ContactForm from './components/Form/ContactForm';
+import ThemeProvider, { ThemeContext } from './components/Theme/ThemeContext';
 import './App.css';
 
-function App() {
+function AppContent() {
+  const { modoOscuro } = useContext(ThemeContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
@@ -16,23 +17,32 @@ function App() {
   };
 
   return (
-    <ThemeProvider>
+    <div className={`app ${modoOscuro ? 'dark-theme' : 'light-theme'}`}>
       <BrowserRouter>
         <Routes>
           {!isLoggedIn ? (
             <Route path="/" element={<Login onLogin={handleLogin} />} />
           ) : (
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Navigate to="/characters" replace />} />
-              <Route path="characters" element={<CharacterList />} />
-              <Route path="characters/:id" element={<CharacterInfo/>} />
-              {/* Aquí puedes agregar más rutas para otros componentes */}
-              <Route path="form" element={<ContactForm />} />
-            </Route>
+            <>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Navigate to="/characters" replace />} />
+                <Route path="characters" element={<CharacterList />} />
+                <Route path="characters/:id" element={<CharacterInfo />} />
+                <Route path="form" element={<ContactForm />} />
+              </Route>
+            </>
           )}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
     </ThemeProvider>
   );
 }
