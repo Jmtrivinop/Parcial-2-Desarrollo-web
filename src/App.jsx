@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Layout from './components/Layout/Layout';
@@ -11,10 +11,27 @@ import './App.css';
 function AppContent() {
   const { modoOscuro } = useContext(ThemeContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
+  useEffect(() =>{
+
+    const user = localStorage.getItem('user')
+
+    if (user)
+    {
+      setIsLoggedIn(true)
+    }
+    setIsLoading(false)
+  }, [])
+
+  const handleLogin = (userName) => {
+    localStorage.setItem('user', userName)
+    setIsLoggedIn(true)
   };
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <div className={`app ${modoOscuro ? 'dark-theme' : 'light-theme'}`}>

@@ -15,7 +15,7 @@ function Login({ onLogin }) {
     }
     
     // Simple validation passed, call the onLogin callback
-    onLogin();
+    onLogin(username);
   };
 
   return (

@@ -1,11 +1,18 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from '../Theme/ThemeContext'; // Ajusta si tu ruta es distinta
 import './Navbar.css';
 
 function Navbar() {
   const location = useLocation();
   const { modoOscuro, toggleTema } = useContext(ThemeContext);
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+
+    setUser(localStorage.getItem('user'))
+    console.log(user)
+  }, [user])
 
   const navbarStyle = {
     backgroundColor: modoOscuro ? '#111' : '#fff',
@@ -21,7 +28,7 @@ function Navbar() {
             <span className="logo-text">FUTURAMA</span>
           </Link>
         </div>
-
+      {user}
         <div className="navbar-links">
           <Link 
             to="/characters" 
