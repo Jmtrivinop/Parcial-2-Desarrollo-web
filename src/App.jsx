@@ -24,6 +24,12 @@ function AppContent() {
     setIsLoading(false)
   }, [])
 
+  const handleLogout = () => {
+
+    localStorage.clear()
+    setIsLoggedIn(false)
+  }
+
   const handleLogin = (userName) => {
     localStorage.setItem('user', userName)
     setIsLoggedIn(true)
@@ -41,7 +47,7 @@ function AppContent() {
             <Route path="/" element={<Login onLogin={handleLogin} />} />
           ) : (
             <>
-              <Route path="/" element={<Layout />}>
+              <Route path="/" element={<Layout logOut={handleLogout} />}>
                 <Route index element={<Navigate to="/characters" replace />} />
                 <Route path="characters" element={<CharacterList />} />
                 <Route path="characters/:id" element={<CharacterInfo />} />

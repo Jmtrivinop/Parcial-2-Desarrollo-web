@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
+import {ThemeContext} from '../Theme/ThemeContext'
+import { useContext } from 'react';
+import './CharacterCard.css'
 
 function CharacterCard({ character }) {
   const { name, images, species, id } = character;
+
+  const {modoOscuro} = useContext(ThemeContext)
   
   const fullName = `${name.first} ${name.middle || ''} ${name.last}`.trim();
 
@@ -9,7 +14,7 @@ function CharacterCard({ character }) {
 
   return (
     <Link to={`/characters/${id}`} state={{character}}style={{ textDecoration: 'none', color: 'inherit' }}>
-      <div className="character-card" >
+      <div className={`character-card ${modoOscuro ? "dark" : ''}`} >
         <div className="character-image">
           <img 
             src={images.main} 

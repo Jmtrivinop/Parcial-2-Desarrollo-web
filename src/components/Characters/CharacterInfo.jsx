@@ -1,17 +1,21 @@
 import { useLocation } from 'react-router-dom';
 import './CharacterInfo.css';
+import { useContext } from 'react';
+import { ThemeContext } from '../Theme/ThemeContext';
 
 function CharacterInfo() {
   const { state } = useLocation();
   const { character } = state || {};
   const fullName = `${character.name.first} ${character.name.middle || ''} ${character.name.last}`.trim();
 
+  const {modoOscuro} =  useContext(ThemeContext)
+
   if (!character) {
     return <div>No hay datos del personaje</div>;
   }
 
   return (
-    <div className="character-detail-container">
+    <div className={`character-detail-container${modoOscuro ? ' dark' : ''}`}>
       <div className="character-detail-content">
         <div className="character-image-container">
           <img 

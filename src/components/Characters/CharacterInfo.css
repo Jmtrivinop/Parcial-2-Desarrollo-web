@@ -3,10 +3,13 @@
     justify-content: center;
     padding: 2rem;
     max-width: 1200px;
-    margin: 0 auto;
-    background-color: inherit; /* Fondo blanco para el modo claro */
+    margin: 0 auto;/* Fondo blanco para el modo claro */
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    background-color: var(--secundary-dark-background); 
   }
   
   .character-detail-content {
