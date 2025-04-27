@@ -5,11 +5,21 @@ import './CharacterList.css';
 function CharacterList() {
   const [characters, setCharacters] = useState([]);
   const [filteredCharacters, setFilteredCharacters] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchNameTerm, setSearchNameTerm] = useState('');
+  const [searchSpecieTerm, setSearchSpecieTerm] = useState('')
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+
+    if (localStorage.getItem('searchName') != null) {
+      setSearchNameTerm(localStorage.getItem('searchName'))
+    }
+
+    if (localStorage.getItem('searchEspecie') != null) {
+      setSearchSpecieTerm(localStorage.getItem('searchEspecie'))
+    }
+
     const fetchCharacters = async () => {
       try {
         const response = await fetch('https://api.sampleapis.com/futurama/characters');
@@ -32,15 +42,23 @@ function CharacterList() {
   }, []);
 
   useEffect(() => {
+    console.log("entre")
     const results = characters.filter(character =>
-      character.name.first.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      character.name.last.toLowerCase().includes(searchTerm.toLowerCase())
+      (character.name.first.toLowerCase().includes(searchNameTerm.toLowerCase()) || character.name.last.toLowerCase().includes(searchNameTerm.toLowerCase())) && character.species.toLowerCase().includes(searchSpecieTerm.toLowerCase())
     );
     setFilteredCharacters(results);
-  }, [searchTerm, characters]);
+  }, [searchNameTerm, searchSpecieTerm, characters]);
 
   const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
+    if (e.target.name == "nombre") {
+      setSearchNameTerm(e.target.value); 
+      localStorage.setItem('searchName', e.target.value)
+    }
+
+    if (e.target.name == "especie") {
+      setSearchSpecieTerm(e.target.value)
+      localStorage.setItem('searchEspecie', e.target.value)
+    }
   };
 
   if (loading) {
@@ -58,8 +76,18 @@ function CharacterList() {
       <div className="search-container">
         <input
           type="text"
+          name='nombre'
           placeholder="Buscar personaje por nombre"
-          value={searchTerm}
+          value={searchNameTerm}
+          onChange={handleSearch}
+          className="search-input"
+        />
+
+        <input
+          type="text"
+          name='especie'
+          placeholder="Buscar personaje por especie"
+          value={searchSpecieTerm}
           onChange={handleSearch}
           className="search-input"
         />
