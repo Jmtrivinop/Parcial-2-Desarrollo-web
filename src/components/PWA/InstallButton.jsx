@@ -6,6 +6,7 @@ function InstallButton() {
   useEffect(() => {
     const handler = (e) => {
       e.preventDefault();
+      console.log('beforeinstallprompt event detected');
       setDeferredPrompt(e);
     };
 

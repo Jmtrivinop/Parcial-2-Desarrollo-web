@@ -14,20 +14,13 @@ export default defineConfig({
       short_name: 'MiPWA',
       description: 'Esta es una app PWA',
       theme_color: '#ffffff',
-    display: 'standalone', 
+      display: 'standalone', 
       start_url: '/',
-      icons:[
-        {
-        src: 'icons/icon-128.png',
-        sizes: '128x128',
-        type: 'image/png'
-      },
-      {
-        src: 'icons/icon-512x512.png',
-        sizes: '512x512',
-        type: 'image/png'
-      }
-      ]
+      icons:[    {
+        src: "vite.svg",
+        sizes: "128x128",
+        type: "image/svg"
+      },]
 
     },
     workbox:{
