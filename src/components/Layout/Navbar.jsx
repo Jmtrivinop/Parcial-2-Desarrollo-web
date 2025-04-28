@@ -22,7 +22,7 @@ function Navbar({logOut}) {
   };
 
   return (
-    <nav className="navbar" style={navbarStyle}>
+    <nav className={`navbar${modoOscuro ? ' dark' : ''}`}>
         <div className="navbar-container">
             <div className="navbar-logo">
                 <Link to="/characters" style={{ color: 'inherit', textDecoration: 'none' }}>
