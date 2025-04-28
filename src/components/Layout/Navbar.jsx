@@ -42,6 +42,12 @@ function Navbar({logOut}) {
                 >
                   Formulario
                 </Link>
+                <Link 
+                  to="/about" 
+                  className={location.pathname === '/about' ? 'active' : ''}
+                >
+                  About Us
+                </Link>
                 {/* Botón para cambiar el tema */}
                 <button onClick={toggleTema} className="theme-toggle-btn">
                   {modoOscuro ? '☀️ Claro' : '🌙 Oscuro'}

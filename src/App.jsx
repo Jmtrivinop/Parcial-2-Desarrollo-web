@@ -5,6 +5,7 @@ import Layout from './components/Layout/Layout';
 import CharacterList from './components/Characters/CharacterList';
 import CharacterInfo from './components/Characters/CharacterInfo';
 import ContactForm from './components/Form/ContactForm';
+import AboutUs from './components/AboutUs/AboutUs';
 import ThemeProvider, { ThemeContext } from './components/Theme/ThemeContext';
 import './App.css';
 
@@ -51,6 +52,7 @@ function AppContent() {
                 <Route index element={<Navigate to="/characters" replace />} />
                 <Route path="characters" element={<CharacterList />} />
                 <Route path="characters/:id" element={<CharacterInfo />} />
+                <Route path="about" element={<AboutUs/>} />
                 <Route path="form" element={<ContactForm />} />
               </Route>
             </>
