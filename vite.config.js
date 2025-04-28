@@ -6,6 +6,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig({
   plugins: [react(), VitePWA({
     registerType: 'autoUpdate',
+    devOptions: {
+      enabled: true,      
+    },
     manifest: {
       name: 'Mi prueba App PWA React',
       short_name: 'MiPWA',
