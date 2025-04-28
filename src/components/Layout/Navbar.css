@@ -43,6 +43,10 @@
   letter-spacing: 1px;
 }
 
+.hamburger-container {
+  display: none;
+}
+
 .navbar-links {
   display: flex;
   justify-content: space-between;
@@ -171,6 +175,10 @@
     display: none;
   }
 
+  .hamburger-container {
+    display: block;
+  }
+
   .hamburger-icon {
     display: block;
   }
@@ -179,6 +187,8 @@
     display: flex;
     position: absolute;
     background-color: var(--principal-light-background);
+    color: #3563E9;
+
   }
 
   .user-container {

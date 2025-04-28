@@ -40,7 +40,6 @@ function Navbar({ logOut }) {
     </div>
 
     <div className='hamburger-container'>
-
       {/* Ícono de hamburguesa en móvil */}
       <button className="hamburger-icon" onClick={toggleHamburgerMenu}>
         ☰
