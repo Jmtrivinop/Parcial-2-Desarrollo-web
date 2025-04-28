@@ -17,11 +17,16 @@ export default defineConfig({
       theme_color: '#ffffff',
       display: 'standalone', 
       start_url: '/',
-      icons:[    {
-        src: "vite.svg",
+      icons:[{
+        src: "/icons/icon-128.png",
         sizes: "128x128",
-        type: "image/svg"
-      },]
+        type: "image/png"
+      },
+      {
+        src: "/icons/icon-512.png",
+        sizes: "512x512",
+        type: "image/png"
+      }]
 
     },
     workbox:{
