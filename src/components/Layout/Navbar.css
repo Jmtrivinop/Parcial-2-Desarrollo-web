@@ -17,7 +17,7 @@
 
 .navbar-logo a {
   text-decoration: none;
-  color: inherit; /* Para heredar del navbar */
+  color: inherit;
 }
 
 .logo-text {
@@ -34,7 +34,7 @@
 
 .navbar-links a {
   text-decoration: none;
-  color: inherit; /* Hereda del tema actual */
+  color: inherit;
   font-weight: 500;
   padding: 0.5rem 0;
   position: relative;
@@ -69,15 +69,100 @@
   font-size: 1rem;
 }
 
+.user-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.user-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 100;
+}
+.user-name {
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+.logout-button {
+  background-color: #3563E9;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.logout-button:hover {
+  background-color: #254a91;
+}
+
+.hamburger-icon {
+  display: none; 
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: inherit;
+  cursor: pointer;
+}
+
+.hamburger-menu {
+  display: none; 
+  background-color: inherit;
+  border: 1px solid #ddd;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
 @media (max-width: 600px) {
-  .navbar-container {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+  .navbar-links {
+    display: none;
   }
 
-  .navbar-links {
-    width: 100%;
-    justify-content: space-around;
+  .hamburger-icon {
+    display: block;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-container {
+    display: flex;
   }
 }

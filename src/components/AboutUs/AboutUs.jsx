@@ -14,7 +14,7 @@ const AboutUs = () => {
       <div className="team-grid">
         {/* Primer integrante */}
         <div className="team-card">
-          <img src="src\assets\img_about\Juan.png" alt="Juan Trivino" className="team-image" />
+          <img src="public/img_about/Juan.png" alt="Juan Trivino" className="team-image" />
           <div className="team-content">
             <h2 className="team-name">Juan Martin Triviño</h2>
             <p className="team-role">Sexto Semestre Ing Sistemas</p>
@@ -31,7 +31,7 @@ const AboutUs = () => {
 
         {/* Segundo integrante */}
         <div className="team-card">
-          <img src="src\assets\img_about\Andres.png" alt="Andres Lasso" className="team-image" />
+          <img src="public/img_about/Andres.png" alt="Andres Lasso" className="team-image" />
           <div className="team-content">
             <h2 className="team-name">Andres Felipe Lasso</h2>
             <p className="team-role">Sexto Semestre Ing Sistemas</p>
