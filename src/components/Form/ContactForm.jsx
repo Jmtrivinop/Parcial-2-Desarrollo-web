@@ -1,5 +1,6 @@
- import { useState } from 'react';
+ import { useContext, useState } from 'react';
 import './ContactForm.css';
+import { ThemeContext } from '../Theme/ThemeContext';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ function ContactForm() {
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const {modoOscuro} = useContext(ThemeContext)
 
   const validate = () => {
     const newErrors = {};
@@ -88,7 +90,7 @@ function ContactForm() {
   };
 
   return (
-    <div className="form-container">
+    <div className={`form-container${modoOscuro ? ' dark' : ''}`}>
       <h1>Formulario de Contacto</h1>
       
       {submitted && (

@@ -7,8 +7,13 @@
   margin: 0 auto;
 }
 
+.form-container.dark {
+  background-color: var(--secundary-dark-background);
+  color: #ffffff;
+}
+
 .form-container h1 {
-  color: #333;
+  color: inherit;
   margin-bottom: 1.5rem;
 }
 
@@ -26,7 +31,7 @@
 
 .form-group label {
   font-weight: 500;
-  color: #333;
+  color: inherit;
 }
 
 .form-group input,

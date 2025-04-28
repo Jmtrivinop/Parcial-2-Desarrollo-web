@@ -39,33 +39,37 @@ function Navbar({ logOut }) {
       </Link>
     </div>
 
-    {/* Ícono de hamburguesa en móvil */}
-    <button className="hamburger-icon" onClick={toggleHamburgerMenu}>
-      ☰
-    </button>
+    <div className='hamburger-container'>
 
-    {/* Menú hamburguesa en móvil */}
-    {hamburgerVisible && (
-      <div className="hamburger-menu">
-        <Link to="/characters" className={location.pathname === '/characters' ? 'active' : ''} onClick={toggleHamburgerMenu}>
-          Personajes
-        </Link>
-        <Link to="/form" className={location.pathname === '/form' ? 'active' : ''} onClick={toggleHamburgerMenu}>
-          Formulario
-        </Link>
-        <Link to="/about" className={location.pathname === '/about' ? 'active' : ''} onClick={toggleHamburgerMenu}>
-          About Us
-        </Link>
+      {/* Ícono de hamburguesa en móvil */}
+      <button className="hamburger-icon" onClick={toggleHamburgerMenu}>
+        ☰
+      </button>
 
-        {/* Botón cambiar tema DENTRO del menú */}
-        <button onClick={toggleTema} className="theme-toggle-btn">
-          {modoOscuro ? '☀️ Claro' : '🌙 Oscuro'}
-        </button>
+      {/* Menú hamburguesa en móvil */}
+      {hamburgerVisible && (
+        <div className="hamburger-menu">
+          <Link to="/characters" className={location.pathname === '/characters' ? 'active' : ''} onClick={toggleHamburgerMenu}>
+            Personajes
+          </Link>
+          <Link to="/form" className={location.pathname === '/form' ? 'active' : ''} onClick={toggleHamburgerMenu}>
+            Formulario
+          </Link>
+          <Link to="/about" className={location.pathname === '/about' ? 'active' : ''} onClick={toggleHamburgerMenu}>
+            About Us
+          </Link>
 
-        {/* También puedes incluir InstallButton aquí si quieres */}
-        <InstallButton />
-      </div>
-    )}
+          {/* Botón cambiar tema DENTRO del menú */}
+          <button onClick={toggleTema} className="theme-toggle-btn">
+            {modoOscuro ? '☀️ Claro' : '🌙 Oscuro'}
+          </button>
+
+          {/* También puedes incluir InstallButton aquí si quieres */}
+          <InstallButton />
+        </div>
+      )}
+
+    </div>
 
     {/* Links normales en escritorio */}
     <div className="navbar-links">

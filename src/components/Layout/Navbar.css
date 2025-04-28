@@ -23,8 +23,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  width: 100vw;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -47,7 +46,8 @@
 .navbar-links {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 60%;
+  max-width: 800px;
 }
 
 .navbar-links a {
@@ -101,6 +101,7 @@
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  padding: 0;
 }
 
 .user-menu {
@@ -165,7 +166,7 @@
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .navbar-links {
     display: none;
   }
@@ -176,11 +177,12 @@
 
   .hamburger-menu {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    position: absolute;
+    background-color: var(--principal-light-background);
   }
 
   .user-container {
     display: flex;
+    position: relative;
   }
 }

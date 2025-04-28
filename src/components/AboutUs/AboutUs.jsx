@@ -1,7 +1,12 @@
+import { useContext } from 'react';
 import './AboutUs.css';
 import { Github, Linkedin, Twitter } from "lucide-react"
+import { ThemeContext } from '../Theme/ThemeContext';
 
 const AboutUs = () => {
+
+  const {modoOscuro} = useContext(ThemeContext)
+
   return (
     <div className="about-container">
       <div className="about-header">
@@ -11,7 +16,7 @@ const AboutUs = () => {
         </p>
       </div>
 
-      <div className="team-grid">
+      <div className={`team-grid${modoOscuro ? ' dark' : ''}`}>
         {/* Primer integrante */}
         <div className="team-card">
           <img src="/img_about/Juan.png" alt="Juan Trivino" className="team-image" />
