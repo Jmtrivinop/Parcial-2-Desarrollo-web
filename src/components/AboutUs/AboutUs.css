@@ -42,9 +42,9 @@
   
   .team-image {
     width: 100%;
-    height: 12rem;
-    object-fit: cover;
-    background-color: #f3f4f6; /* gris claro */
+    height: 50%;
+    background-color: #f3f4f6; 
+
   }
   
   .team-content {

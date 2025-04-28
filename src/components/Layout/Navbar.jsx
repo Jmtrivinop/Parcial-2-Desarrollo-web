@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from '../Theme/ThemeContext'; // Ajusta si tu ruta es distinta
 import './Navbar.css';
+import InstallButton from '../PWA/InstallButton';
 
 function Navbar({logOut}) {
   const location = useLocation();
@@ -60,6 +61,8 @@ function Navbar({logOut}) {
                 <button onClick={logOut}>
                     Log out
                 </button>
+
+                <InstallButton></InstallButton>
             </div>
         </div>
     </nav>
